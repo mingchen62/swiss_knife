@@ -1,0 +1,26 @@
+Step 1 – Add Node.js Yum Repository 
+
+# yum install -y gcc-c++ make
+# curl -sL https://rpm.nodesource.com/setup_6.x | sudo -E bash -
+
+Step 2 – Install Node.js and NPM
+
+# yum install nodejs
+
+Step 3 – Check Node.js and NPM Version 
+
+$ node -v 
+$ npm -v
+
+
+Step 4 - Optional: update node to latest version
+
+sudo npm cache clean -f
+sudo npm install -g n
+sudo n stable
+
+sudo ln -sf /usr/local/n/versions/node/<VERSION>/bin/node /usr/bin/node 
+
+To upgrade to latest version (and not current stable) version, you can use:
+
+sudo n latest
