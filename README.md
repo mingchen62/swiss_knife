@@ -16,10 +16,10 @@ rest service to Convert subset of MathML to ASCIIMathML.
   npm install cors
 
 ```
-Update local changes on mathml-to-asciimath.
+3. Update local changes on mathml-to-asciimath.
 $ cd node_modules
 $ tar xvf mathml-to-asciimath.tar
 
-test rest service:
+4. test rest service:
 $ node client-test-latex.js 
 $ node client-test-mathml.js
