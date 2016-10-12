@@ -16,16 +16,9 @@ rest service to Convert subset of MathML to ASCIIMathML.
   npm install cors
 
 ```
-test at current dir:
-
-$ node
-> var convert = require('texzilla');
-> var latex ='x<y';
-> convert.toMathMLString(latex);
-> convert = require('mathml-to-asciimath');
-> var mathml = '<math><mn>1</mn><mo>+</mo><mn>2</mn></math>';
-> convert(mathml); // => '1 + 2' test
->.exit
+Update local changes on mathml-to-asciimath.
+$ cd node_modules
+$ tar xvf mathml-to-asciimath.tar
 
 test rest service:
 $ node client-test-latex.js 
