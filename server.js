@@ -3,6 +3,14 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var app = express();
 
+var whitelist = ['http://72.93.93.60', 'http://elanking.ecom'];
+var corsOptions = {
+  origin: function(origin, callback){
+    var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+    callback(originIsWhitelisted ? null : 'Bad Request', originIsWhitelisted);
+  }
+};
+
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -34,7 +42,7 @@ var tpl = fs.readFile( __dirname + "/" + "response_template.json", 'utf8', funct
 var convert = require('texzilla');
 var convert1 = require('mathml-to-asciimath');
 
-app.post('/mathml_to_asciimath', function (req, res) {
+app.post('/mathml_to_asciimath', cors(corsOptions),function (req, res) {
    // First read existing users.
       console.log(req.body);
       winston.info("id: %s", req.body.id);
