@@ -41,6 +41,9 @@ app.post('/mathml_to_asciimath', function (req, res) {
       tplData.id = req.body.id;
       tplData.mathml = req.body.mathml;
       tplData.asciimath = convert1(tplData.mathml);
+      var len = tplData.asciimath.length;
+      if ( tplData.asciimath.charAt(0)=='\(' && tplData.asciimath.charAt(len -1) == '\)')
+          tplData.asciimath =tplData.asciimath.substring(1,len-1)
       winston.info("asciimath: %s", tplData.asciimath);
       res.contentType('application/json');
       res.send( JSON.stringify(tplData));
@@ -54,10 +57,10 @@ app.post('/latex_to_asciimath', function (req, res) {
       tplData.latex = req.body.latex;
       tplData.mathml = convert.toMathMLString(tplData.latex);
       tplData.asciimath = convert1(tplData.mathml);
-      winston.info("asciimath: %s", tplData.asciimath);
       var len = tplData.asciimath.length;
       if ( tplData.asciimath.charAt(0)=='\(' && tplData.asciimath.charAt(len -1) == '\)')
-          tplData.asciimath =tplData.asciimath.subString(1,len)
+          tplData.asciimath =tplData.asciimath.substring(1,len-1)
+      winston.info("asciimath: %s", tplData.asciimath);
       winston.info("mathml: %s", tplData.mathml);
       res.contentType('application/json');
       res.send( JSON.stringify(tplData));
