@@ -43,8 +43,8 @@ $ node client-test-mathml.js
 
 # remote test over firewall 
 6. test REST over network to make sure firewall is open; If not open, use 'ipTables' to check
-From another machine,
-%curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"", "mathml":"", "latex":"x \\lt y"}' http://192.168.1.154:8083/latex_to_asciimath
-# Simple performance test using Apache Benchmark
-%echo '{"id":90,"asciimath":"", "mathml":"", "latex":"x \\lt y"}' > post_loc.txt
+From another machine, <br />
+%curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"", "mathml":"", "latex":"x \\lt y"}' http://192.168.1.154:8083/latex_to_asciimath<br />
+# Simple performance test using Apache Benchmark<br />
+%echo '{"id":90,"asciimath":"", "mathml":"", "latex":"x \\lt y"}' > post_loc.txt<br />
 %ab -p post_loc.txt -T application/json -c 5 -n 10 http://192.168.1.154:8083/latex_to_asciimath
