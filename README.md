@@ -2,9 +2,9 @@
 Rest service to Convert different math formats: Latex to MathMl and a subset of MathML to ASCIIMathML.
 
 # installation
-1. install node.js, see etc/install-node-centos.txt
+##. install node.js, see etc/install-node-centos.txt
 
-2. install dependency packages
+##. install dependency packages
 
 ```
   npm install express  
@@ -16,8 +16,8 @@ Rest service to Convert different math formats: Latex to MathMl and a subset of 
   npm install cors
 
 ```
-3. Update local changes on mathml-to-asciimath.
-$ cd node_modules
+##. Update local changes on mathml-to-asciimath.<br>
+$ cd node_modules <br>
 $ tar xvf ../mathml-to-asciimath.tar
 
 # test NODE.js installation
