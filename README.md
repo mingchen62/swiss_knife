@@ -44,10 +44,10 @@ test Rest service from same directory, local connection:<br>
 $ node client-test-latex.js <br>
 $ node client-test-mathml.js<br>
 
-## test RESTful service 
+## test RESTful services 
 6. test REST over network to make sure firewall is open; If not open, use 'ipTables' to check
 From another machine, <br>
-Latex_toAsciiMath
+Latex_toAsciiMath<br>
 %curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"", "mathml":"", "latex":"x \\lt y"}' http://192.168.1.156:8089/latex_to_asciimath<br>
 Asccimath to MathMl<br>
 %curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"x < y", "mathml":"", "latex":""}' http://192.168.1.156:8089/asciimath_to_mathml<br>
