@@ -2,9 +2,9 @@
 Rest service to Convert different math formats: Latex to MathMl and a subset of MathML to ASCIIMathML.
 
 # installation
-##. install node.js, see etc/install-node-centos.txt
+## install node.js, see etc/install-node-centos.txt
 
-##. install dependency packages
+## install dependency packages
 
 ```
   npm install express  
@@ -16,13 +16,13 @@ Rest service to Convert different math formats: Latex to MathMl and a subset of 
   npm install cors
 
 ```
-##. Update local changes on mathml-to-asciimath.<br>
+## Update local changes on mathml-to-asciimath.<br>
 $ cd node_modules <br>
 $ tar xvf ../mathml-to-asciimath.tar
 
 # test NODE.js installation
-4. test the two conversion JS packages are correctly installed
-% node
+4. test the two conversion JS packages are correctly installed<br>
+% node<br>
 > var convert = require('texzilla');
 > var lex ='x \leq y';
 > convert.toMathMLString(lex);
@@ -31,16 +31,16 @@ $ tar xvf ../mathml-to-asciimath.tar
 > convert2(mathml);
 >.exit
 
-## local test
-There will be various REST end points for this service:
+## local test<br>
+There will be various REST end points for this service:<br>
 /mathml_to_asciimath
 /latex_to_asciimath
 /latex_to_mathml
 /asciimath_mathml
 
-5. test Rest service from same directory, local connection:
-$ node client-test-latex.js 
-$ node client-test-mathml.js
+5. test Rest service from same directory, local connection:<br>
+$ node client-test-latex.js <br>
+$ node client-test-mathml.js<br>
 
 ## remote test over firewall 
 6. test REST over network to make sure firewall is open; If not open, use 'ipTables' to check
