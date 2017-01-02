@@ -90,6 +90,7 @@ app.post('/asciimath_to_mathml', function (req, res) {
    tplData.id = req.body.id;
    tplData.asciimath = req.body.asciimath;
    tplData.mathml = ascii2mathml(tplData.asciimath );
+   tplData.latex = "";
    winston.info("mathml: %s", tplData.mathml);
    res.contentType('application/json');
    res.send( JSON.stringify(tplData));
