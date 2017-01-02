@@ -41,9 +41,9 @@ var tpl = fs.readFile( __dirname + "/" + "response_template.json", 'utf8', funct
 
 var convert = require('texzilla');
 var convert1 = require('mathml-to-asciimath');
+var ascii2mathml = require("ascii2mathml");
 
 app.post('/mathml_to_asciimath', cors(corsOptions),function (req, res) {
-   // First read existing users.
       console.log(req.body);
       winston.info("id: %s", req.body.id);
       tplData.id = req.body.id;
@@ -58,7 +58,6 @@ app.post('/mathml_to_asciimath', cors(corsOptions),function (req, res) {
 })
 
 app.post('/latex_to_asciimath', function (req, res) {
-   // First read existing users.
       console.log(req.body);
       winston.info("id: %s", req.body.id);
       tplData.id = req.body.id;
@@ -75,7 +74,6 @@ app.post('/latex_to_asciimath', function (req, res) {
 })
 
 app.post('/latex_to_mathml', function (req, res) {
-   // First read existing users.
    console.log(req.body);
    winston.info("id: %s", req.body.id);
    tplData.id = req.body.id;
@@ -85,7 +83,17 @@ app.post('/latex_to_mathml', function (req, res) {
    res.contentType('application/json');
    res.send( JSON.stringify(tplData));
 })
-   //
+
+app.post('/asciimath_to_mathml', function (req, res) {
+   console.log(req.body);
+   winston.info("id: %s", req.body.id);
+   tplData.id = req.body.id;
+   tplData.asciimath = req.body.asciimath;
+   tplData.mathml = ascii2mathml(tplData.asciimath );
+   winston.info("mathml: %s", tplData.mathml);
+   res.contentType('application/json');
+   res.send( JSON.stringify(tplData));
+})
 
 var server = app.listen(8083, function () {
    var host = server.address().address
