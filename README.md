@@ -2,7 +2,8 @@
 Rest service to Convert different math formats: Latex to MathMl and a subset of MathML to ASCIIMathML.
 
 # installation
-## install node.js, see etc/install-node-centos.txt
+## install node.js
+see etc/install-node-centos.txt
 
 ## install dependency packages
 
@@ -22,7 +23,7 @@ $ cd node_modules <br>
 $ tar xvf ../mathml-to-asciimath.tar
 
 # test NODE.js installation
-4. test the two conversion JS packages are correctly installed<br>
+test the two conversion JS packages are correctly installed<br>
 % node<br>
 > var convert = require('texzilla');
 > var lex ='x \leq y';
@@ -39,18 +40,18 @@ There will be various REST end points for this service:<br>
 /latex_to_mathml<br>
 /asciimath_mathml<br>
 
-5. test Rest service from same directory, local connection:<br>
+test Rest service from same directory, local connection:<br>
 $ node client-test-latex.js <br>
 $ node client-test-mathml.js<br>
 
-## remote test over firewall 
+## test RESTful service 
 6. test REST over network to make sure firewall is open; If not open, use 'ipTables' to check
 From another machine, <br>
 Latex_toAsciiMath
-curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"", "mathml":"", "latex":"x \\lt y"}' http://192.168.1.156:8089/latex_to_asciimath<br>
+%curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"", "mathml":"", "latex":"x \\lt y"}' http://192.168.1.156:8089/latex_to_asciimath<br>
 Asccimath to MathMl<br>
-curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"x < y", "mathml":"", "latex":""}' http://192.168.1.156:8089/asciimath_to_mathml<br>
-curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"sqrt((A+X)/2)/2", "mathml":"", "latex":""}' http://192.168.1.156:8089/asciimath_to_mathml<br>
+%curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"x < y", "mathml":"", "latex":""}' http://192.168.1.156:8089/asciimath_to_mathml<br>
+%curl -H "Content-Type: application/json;charset=UTF-8" -X POST -d '{"id":90,"asciimath":"sqrt((A+X)/2)/2", "mathml":"", "latex":""}' http://192.168.1.156:8089/asciimath_to_mathml<br>
 
 ## Simple performance test using Apache Benchmark<br>
 %echo '{"id":90,"asciimath":"", "mathml":"", "latex":"x \\lt y"}' > post_loc.txt<br>
